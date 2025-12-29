@@ -1,0 +1,27 @@
+{
+    "name": "kalyanam",
+    "age": 17,
+    "isAdmin": true,
+    "license": null,
+    "shop": [
+        "food",
+        "clothes",
+        "gadgets"
+    ],
+    "marks": {
+        "maths": 87,
+        "physics": 93,
+        "chemistry": 89
+    },
+    "student": {
+        "id": 6601,
+        "name": "abhinav",
+        "dept": "cse ai ml",
+        "year": 3,
+        "subjects": {
+            "python": 69,
+            "data structure": 65,
+            "algorithms": 74
+        }
+    }
+}

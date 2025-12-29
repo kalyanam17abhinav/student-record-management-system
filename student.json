@@ -1,0 +1,113 @@
+[
+    {
+        "id": "21VD1A6601",
+        "name": "man eater",
+        "dept": "cse_ds",
+        "year": "3",
+        "semester": "2",
+        "totalSubs": 4,
+        "subjects": {
+            "deep learning": 87,
+            "robotics": 93,
+            "statistics": 96,
+            "automation mechanics": 67
+        }
+    },
+    {
+        "id": "21VD1A6610",
+        "name": "ch. bhanu prasad",
+        "dept": "cse_it",
+        "year": "2",
+        "semester": "2",
+        "totalSubs": 1,
+        "subjects": {
+            "databases": 87
+        }
+    },
+    {
+        "id": "21VD1A6640",
+        "name": "liger",
+        "dept": "ece",
+        "year": "3",
+        "semester": "2",
+        "totalSubs": 2,
+        "subjects": {
+            "data structure": 80,
+            "algorithms": 73
+        }
+    },
+    {
+        "id": "21VD1A6608",
+        "name": "bheemani anurag",
+        "dept": "mech",
+        "year": "3",
+        "semester": "1",
+        "totalSubs": "2",
+        "subjects": {
+            "fluid dynamics": 42,
+            "aeronautical eng": 31
+        }
+    },
+    {
+        "id": "21vd1a0454",
+        "name": "steve harrington",
+        "dept": "ece",
+        "year": "2",
+        "semester": "2",
+        "totalSubs": "6",
+        "subjects": {
+            "a": 6,
+            "b": 5,
+            "c": 4,
+            "d": 3,
+            "e": 2,
+            "f": 1
+        }
+    },
+    {
+        "id": "34329cdsv",
+        "name": "crioe438c 32e3 9",
+        "dept": "cse_cyber",
+        "year": "2",
+        "semester": "1",
+        "totalSubs": 2,
+        "subjects": {
+            "4edftyui": 95,
+            "7w ddywe": 45
+        }
+    },
+    {
+        "id": "21vd1a9595",
+        "name": "asde",
+        "dept": "cse_ai_ml",
+        "year": "3",
+        "semester": "1",
+        "totalSubs": "1",
+        "subjects": {
+            "ffdvfd": 34
+        }
+    },
+    {
+        "id": "1c4ffe3",
+        "name": "sdcnek",
+        "dept": "cse_it",
+        "year": "2",
+        "semester": "1",
+        "totalSubs": 2,
+        "subjects": {
+            "wece": 34,
+            "cuhcr": 56
+        }
+    },
+    {
+        "id": "scnwe",
+        "name": "tony stark",
+        "dept": "eee",
+        "year": "2",
+        "semester": "1",
+        "totalSubs": 1,
+        "subjects": {
+            "vrewrf": 10
+        }
+    }
+]

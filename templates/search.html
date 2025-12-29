@@ -1,0 +1,52 @@
+{% extends "base.html" %} 
+{% block title %}Student Data{% endblock %} 
+
+{% block content %}
+
+<div class="relative w-fit mx-auto">
+  <button onclick="back_home()" class="absolute right-2 top-2 z-50 p-2 border border-black bg-yellow-400 text-black font-bold">Home</button>
+
+  <div class="search mx-auto mt-12 h-fit w-fit border border-yellow-400 px-12 py-4 font-bold [&_input]:bg-black [&_input]:text-white [&_input]:border [&_input]:border-yellow-500 [&_label]:inline-block [&_label]:w-32 [&_input]:w-48 flex flex-col gap-4">
+    <div class="id">
+      <label for="id">ID:</label>
+      <input class="id text-center" value="{{ student.id}}" readonly />
+    </div>
+    <div class="name">
+      <label for="name">Name:</label>
+      <input class="name text-center" value="{{ student.name }}" readonly />
+    </div>
+    <div class="dept">
+      <label for="dept">Department:</label>
+      <input class="dept text-center" value="{{ student.dept }}" readonly />
+    </div>
+    <div class="year">
+      <label for="year">Year:</label>
+      <input class="year text-center" value="{{ student.year }}" readonly />
+    </div>
+    <div class="semester">
+      <label for="semester">Semester:</label>
+      <input class="semester text-center" value="{{ student.semester }}"
+      readonly/>
+    </div>
+
+    <div id="subCont" class="mt-4">
+      <label for="subjects">Subjects:</label>
+      {% for sub, mark in student.subjects.items() %}
+      <div class="flex gap-4 mt-2">
+        <input type="text" name="subject_{{ loop.index }}" value="{{ sub }}"
+          class="border px-2 py-1 bg-black border-yellow-500 text-center"
+          readonly/>
+        <input type="number" name="marks_{{ loop.index }}" value="{{ mark }}"
+          min="0" max="100" class="border px-2 py-1 bg-black border-yellow-500 text-center" readonly/>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+    function back_home() {
+      window.location.href = "/";
+    }
+  </script>
+{% endblock %}

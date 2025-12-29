@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Edit Student{% endblock %}
+
+{% block content %}
+
+<div class="relative w-fit mx-auto">
+    <button onclick="back_home()" class="absolute right-12 top-4 z-50 p-2 border border-black bg-yellow-400 text-black font-bold">Home</button>
+    <div class="mx-auto mt-12 h-fit w-fit border border-yellow-400 px-12 py-4 font-bold relative">
+        <form action="/edit/{{ student.id }}" method="post">
+            <div class="searchId font-bold flex flex-col items-center absolute top-2">
+                <label for="id" class="w-full text-left">Student ID</label>
+                <input name="id" id="id" type="text" class="bg-black border border-yellow-500 pl-1" value="{{ student.id }}" required readonly/>
+            </div>
+            <div class="mt-12 border border-yellow-400 bg-yellow-400 text-black font-bold flex flex-col gap-4 h-fit w-fit p-12 [&_input]:bg-black [&_input]:text-white [&_select]:bg-black [&_select]:text-white [&_input]:border [&_select]:border [&_input]:border-yellow-500 [&_select]:border-yellow-500 [&_label]:inline-block [&_label]:w-32 [&_input]:w-48 [&_select]:w-48">
+                <div class="name" id="name" name="name">
+                    <label>Name: </label>
+                    <input type="text" name="name" value="{{ student.name }}" required/>
+                </div>
+                <div class="dept">
+                    <label>Department: </label>
+                    <select name="dept">
+                        <option value="cse" {% if student.dept == "cse" %}selected{% endif %}>CSE</option>
+                        <option value="ece" {% if student.dept == "ece" %}selected{% endif %}>ECE</option>
+                        <option value="eee" {% if student.dept == "eee" %}selected{% endif %}>EEE</option>
+                <option value="mech" {% if student.dept == "mech" %}selected{% endif %}>Mechanical</option>
+                <option value="civil" {% if student.dept == "civil" %}selected{% endif %}>Civil</option>
+                
+                <option value="cse_ai_ml" {% if student.dept == "cse_ai_ml" %}selected{% endif %}>CSE AI & ML</option>
+                <option value="cse_ds" {% if student.dept == "cse_ds" %}selected{% endif %}>CSE Data Science</option>
+                <option value="cse_it" {% if student.dept == "cse_it" %}selected{% endif %}>CSE IT</option>
+                <option value="cse_cyber" {% if student.dept == "cse_cyber" %}selected{% endif %}>CSE Cyber Security</option>
+                <option value="cse_blockchain" {% if student.dept == "cse_blockchain" %}selected{% endif %}>CSE Blockchain</option>
+            </select>      
+        </div>
+        <div class="year">
+            <label>Year: </label>
+            <select name="year" class="">
+                <option value="1" {% if student.year == "1" %}selected{% endif %}>1</option>
+                <option value="2" {% if student.year == "2" %}selected{% endif %}>2</option>
+                <option value="3" {% if student.year == "3" %}selected{% endif %}>3</option>
+                <option value="4" {% if student.year == "4" %}selected{% endif %}>4</option>
+            </select>
+        </div>
+        <div class="semester">
+            <label>Semester: </label>
+            <select name="semester">
+                <option value="1" {% if student.semester == "1" %}selected{% endif %}>1</option>
+                <option value="2" {% if student.semester == "2" %}selected{% endif %}>2</option>
+            </select>
+        </div>
+<div class="subs flex items-center gap-2">
+    <label>Total Subjects:</label>
+    <input type="number" class="w-[4.5rem] h-6" value="{{ student.subjects | length }}" readonly>
+    
+    <button type="button" class="submitSubNo border-2 border-black h-6 w-6 rounded-full flex items-center justify-center text-xl font-bold pb-1" onclick="addSubject()"> + </button>
+</div>
+
+<div id="subCont" class="mt-4">
+    {% for sub, mark in student.subjects.items() %}
+    <div class="flex gap-4 mt-2">
+        <input type="text" name="subject_{{ loop.index }}" value="{{ sub }}" class="border px-2 py-1 bg-black border-yellow-500" required>
+        <input type="number" name="marks_{{ loop.index }}" value="{{ mark }}" min="0" max="100" class="border px-2 py-1 bg-black border-yellow-500" required>
+        <button type="button" class="border-2 px-2 border-black" onclick="this.parentElement.remove()">X</button>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="flex gap-2 p-2 justify-center">
+    <button type="submit" class="border-2 border-black px-4 hover:bg-black hover:text-yellow-400">Validate</button>
+    <button type="submit" formaction="/edit/{{ student.id }}/delete" formmethod="post" onclick="return confirm('are you sure you want to delete this student?');" class="border-2 border-black px-4 hover:bg-black hover:text-yellow-400">Delete</button>
+</div>
+</div>
+
+</form>
+</div>
+
+</div>
+<script>
+    function addSubject(){
+        const container = document.getElementById("subCont");
+        const index = container.children.length + 1;
+
+        const row = document.createElement("div");
+        row.className = "flex gap-4 mt-2";
+
+        row.innerHTML = `
+        <input type="text" name="subject_${index}" placeholder="Name" class="border border-black" required>
+        <input type="number" name="marks_${index}" placeholder="Marks" min="0" max="100" class="border border-black" required>
+        <button type="button" onclick="this.parentElement.remove()" class="border-2 px-2 border-black">X</button>
+        `;
+
+        container.appendChild(row);
+    }
+
+    function back_home(){
+        window.location.href = "/";
+    }
+</script>
+
+{% endblock %}

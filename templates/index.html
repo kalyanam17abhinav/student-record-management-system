@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Record Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
+  </head>
+  <body class="bg-black text-white">
+    <nav class="h-[40px] bg-yellow-400 flex justify-around items-center text-black font-bold">
+      <div class="navEle">
+        <button onclick="loadTable()">View</button>
+      </div>
+      <div class="navEle">
+        <button onclick="addElement()">Add</button>
+      </div>
+      <div class="navEle">
+        <button onclick="editElement()">Edit</button>
+      </div>
+      <div class="navEle">
+        <button onclick="searchElement()">Search</button>
+      </div>
+    </nav>
+
+    <!-- <p class="text-[85px] text-yellow-400 font-bold px-12 sticky">student record management system</p> -->
+
+    <!-- view students div -->
+    <div class="disp tableDisp" id="tableDisp"></div>
+
+    <!-- add student div -->
+    <div class="addData" id="addData"></div>
+
+    <!-- edit student data -->
+    <div class="editData" id="editData"></div>
+
+    <!-- search student data -->
+    <div class="searchData" id="searchData"></div>
+
+    <script>
+      let tableVisible = false;
+
+      function loadTable() {
+        const container = document.getElementById("tableDisp");
+
+        if (tableVisible) {
+          container.innerHTML = "";
+          tableVisible = false;
+          return;
+        }
+
+        fetch("/students")
+          .then((res) => res.text())
+          .then((html) => {
+            container.innerHTML = html;
+            tableVisible = true;
+          });
+      }
+
+      function addElement() {
+        fetch("/add")
+          .then((res) => res.text())
+          .then((html) => {
+            document.getElementById("addData").innerHTML = html;
+          });
+      }
+
+      function generateSubs() {
+        const count = parseInt(document.getElementById("addSubNoInput").value);
+        const container = document.getElementById("subCont");
+
+        // container.classList.add("flex", "flex-col");
+
+        container.innerHTML = "";
+
+        if (isNaN(count) || count <= 0 || count > 6) {
+          const input = document.getElementById("addSubNoInput");
+          alert("enter valid numbers");
+          input.value = "";
+          input.focus();
+          return;
+        }
+
+        for (let i = 1; i <= count; i++) {
+          container.innerHTML += `
+          <div class="flex gap-4 mt-2">
+            <input type="text" name="subject_${i}" placeholder="Name" class="border px-2 py-1 bg-black border-yellow-500 ml-[-15px]" required>
+            <input type="number" name="marks_${i}" placeholder="Marks" min="0" max="100" class="border px-2 py-1 bg-black border-yellow-500" required>
+          </div>
+            `;
+        }
+      }
+
+      function editElement() {
+        fetch("/edit")
+          .then((res) => res.text())
+          .then((html) => {
+            document.getElementById("editData").innerHTML = html;
+          });
+      }
+
+      function searchElement(){
+        fetch("/search")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("searchData").innerHTML = html;
+        });
+      }
+    </script>
+  </body>
+</html>

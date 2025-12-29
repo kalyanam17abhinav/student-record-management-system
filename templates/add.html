@@ -1,0 +1,79 @@
+<div class="mx-auto mt-12 h-fit w-fit border border-yellow-400 px-12 py-4 font-bold">
+  <form action="/add" method="post" autocomplete="off" onsubmit="return validateSubjects()">
+    <div class="addId flex items-center mt-6">
+      <label for="addIdInput" class="w-64">Enter Student ID</label>
+      <input name="addIdInput" id="addIdInput" type="text" class="addIdInput bg-black border border-yellow-500" pattern="(?=.*[A-Za-z])[A-Za-z ]+" maxlength="8" required/>
+    </div>
+
+    <div class="addName flex items-center mt-6">
+      <label for="addNameInput" class="w-64">Enter Student Name</label>
+      <input name="addNameInput" id="addNameInput" type="text" class="addNameInput bg-black border border-yellow-500" pattern="(?=.*[A-Za-z])[A-Za-z ]+" required/>
+    </div>
+
+    <div class="addDept flex items-center mt-6">
+      <label for="addDeptInput" class="w-64">Enter Student Department</label>
+      <select id="addDeptInput" name="dept" class="addDeptInput bg-black border border-yellow-500 w-[182px]" required>
+        <option value=""></option>
+        <option value="cse">CSE</option>
+        <option value="ece">ECE</option>
+        <option value="eee">EEE</option>
+        <option value="mech">Mechanical</option>
+        <option value="civil">Civil</option>
+
+        <option value="cse_ai_ml">CSE AI & ML</option>
+        <option value="cse_ds">CSE Data Science</option>
+        <option value="cse_it">CSE IT</option>
+        <option value="cse_cyber">CSE Cyber Security</option>
+        <option value="cse_blockchain">CSE Blockchain</option>
+      </select>
+    </div>
+
+    <div class="addYear flex items-center mt-6">
+      <label for="addYearInput" class="w-64">Enter Student Year</label>
+      <select id="addYearInput" name="year" class="addYearInput bg-black border border-yellow-500 w-[182px]" required>
+        <option value=""></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+
+    <div class="addSemester flex items-center mt-6">
+      <label for="addSemesterInput" class="w-64">Enter Semester</label>
+      <select id="addSemesterInput" name="semester" class="addSemesterInput bg-black border border-yellow-500 w-[182px]" required>
+        <option value=""></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
+
+    <div class="addSubNo flex items-center mt-6">
+      <label for="addSubNoInput" class="w-64">Enter Total Number of Subjects</label>
+      <input name="addSubNoInput" id="addSubNoInput" type="number" class="addSubNoInput bg-black border border-yellow-500 mt-2" min="1" max="6" placeholder="1-6" required/>
+
+      <button class="submitSubNo border-2 border-yellow-500 h-7 w-7 pb-1 rounded-full mt-2 ml-2 flex items-center justify-center text-xl font-bold" type="button" onclick="generateSubs()"> + </button>
+    </div>
+    <div id="subCont" class="mx-4 my-4"></div>
+
+    <button class="submitData border border-yellow-500 bg-yellow-500 hover:bg-yellow-600 text-black font-bold h-8 w-fit px-2" id="submitData" type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+  function validateSubjects(){
+    const inputs = document.querySelectorAll('[name^="subject_"]');
+    const seen = new Set();
+
+    for(const input of inputs){
+      const val = input.value.trim().toLowerCase();
+      if(seen.has(val)){
+        alert("Duplicate subject names are not allowed");
+        input.focus();
+        return false;
+      }
+      seen.add(val);
+    }
+    return true;
+  }
+</script>

@@ -1,0 +1,35 @@
+<p class="font-bold pl-[6.25rem] mt-4">Student Data</p>
+<div class="flex justify-center">
+  <table class="border border-gray-300 mx-auto text-white">
+    <thead>
+      <tr class="tableRow text-yellow-400">
+        <th class="tableHeading">ID</th>
+        <th class="tableHeading">Name</th>
+        <th class="tableHeading">Dept</th>
+        <th class="tableHeading">Year</th>
+        <th class="tableHeading">Semester</th>
+        <th class="tableHeading">Total</th>
+        <th class="tableHeading">Percentage</th>
+        <th class="tableHeading">Grade</th>
+        <th class="tableHeading">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr class="tableRow">
+        <td class="tableEle">{{ s.id }}</td>
+        <td class="tableEle">{{ s.name }}</td>
+        <td class="tableEle">{{ s.dept }}</td>
+        <td class="tableEle">{{ s.year }}</td>
+        <td class="tableEle">{{ s.semester }}</td>
+        <td class="tableEle">{{ s.total }}</td>
+        <td class="tableEle">{{ s.percentage }}%</td>
+        <td class="tableEle">{{ s.grade }}</td>
+        <td class="tableEle {% if s.result == 'PASS' %} text-green-500 {% else %} text-red-500 {% endif %}">
+          {{ s.result }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

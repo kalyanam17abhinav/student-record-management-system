@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navEle{
+    width: 60px;
+    height: 20px;
+    /* border-bottom: 2px solid black; */
+    /* border-radius: 20px; */
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navEle:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.tableHeading{
+    height: 40px;
+    padding: 0 30px;
+    width: fit-content;
+}
+
+.tableRow{
+    width: 100px;
+    height: auto;
+}
+
+.tableEle{
+    border: 1px solid gray;
+    text-align: center;
+    height: 40px;
+    padding: 0 10px;
+    width: fit-content;
+    white-space: nowrap;
+}
