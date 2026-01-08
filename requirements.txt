@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 Flask
-=======
-Flask
->>>>>>> eebad9a702aa079aa73dd132482730811a402d08
