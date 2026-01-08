@@ -6,7 +6,7 @@
     <form action="/search" method="post">
         <div class="searchId font-bold flex flex-col items-center">
           <label for="id">Enter ID to SEARCH details</label>
-          <input name="id" id="id" type="text" class="bg-black border border-yellow-500" required/>
+          <input name="id" id="id" type="text" class="bg-black border border-yellow-500" maxlength="12" minlength="6" required/>
           {% if error %}<p class="text-red-500 mt-12">{{ error }}</p>{% endif %}
         </div>
       </form>

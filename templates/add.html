@@ -2,7 +2,7 @@
   <form action="/add" method="post" autocomplete="off" onsubmit="return validateSubjects()">
     <div class="addId flex items-center mt-6">
       <label for="addIdInput" class="w-64">Enter Student ID</label>
-      <input name="addIdInput" id="addIdInput" type="text" class="addIdInput bg-black border border-yellow-500" pattern="(?=.*[A-Za-z])[A-Za-z ]+" maxlength="8" required/>
+      <input name="addIdInput" id="addIdInput" type="text" class="addIdInput bg-black border border-yellow-500" pattern="(?=.*[A-Za-z])[A-Za-z ]+" maxlength="12" minlength="6" required/>
     </div>
 
     <div class="addName flex items-center mt-6">
