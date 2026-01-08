@@ -260,4 +260,5 @@ def search_show(sid):
     return render_template("search_id.html", error="id not found")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host = "0.0.0.0", port=port)
