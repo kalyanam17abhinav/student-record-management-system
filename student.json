@@ -65,18 +65,6 @@
         }
     },
     {
-        "id": "34329cdsv",
-        "name": "crioe438c 32e3 9",
-        "dept": "cse_cyber",
-        "year": "2",
-        "semester": "1",
-        "totalSubs": 2,
-        "subjects": {
-            "4edftyui": 95,
-            "7w ddywe": 45
-        }
-    },
-    {
         "id": "21vd1a9595",
         "name": "asde",
         "dept": "cse_ai_ml",
@@ -97,17 +85,6 @@
         "subjects": {
             "wece": 34,
             "cuhcr": 56
-        }
-    },
-    {
-        "id": "scnwe",
-        "name": "tony stark",
-        "dept": "eee",
-        "year": "2",
-        "semester": "1",
-        "totalSubs": 1,
-        "subjects": {
-            "vrewrf": 10
         }
     }
 ]
